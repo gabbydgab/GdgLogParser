@@ -23,7 +23,7 @@
         "zendframework/zend-log": "2.2.*",
         "zendframework/zend-validator": "2.2.*",
         "zendframework/zend-config": "2.2.*",
-        "zendframework/zend-filer": "2.2.*",
+        "zendframework/zend-filter": "2.2.*",
         "zendframework/zend-escaper": "2.2.*",
         "zf-commons/zfc-base": "dev-master"
     },
