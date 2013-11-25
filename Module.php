@@ -1,6 +1,6 @@
 <?php
 
-namespace GdgLogParser;
+namespace GdgLogProvider;
 
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;

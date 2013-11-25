@@ -1,5 +1,5 @@
 <?php
 
 return array(
-    'GdgLogParser\Module'                         => __DIR__ . '/Module.php',
+    'GdgLogProvider\Module'                         => __DIR__ . '/Module.php',
 );

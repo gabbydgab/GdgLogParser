@@ -1,16 +1,15 @@
 {
-    "name": "gabbydgab/gdg-logparser",
-    "description": "Abstract application that parses log information in an ETL process such as data import process",
+    "name": "gabbydgab/gdg-logprovider",
+    "description": "Abstract application that provides log information in an ETL process such as data logs",
     "license": "BSD-2-Clause",
     "version": "0.1.0-dev",
     "type": "library",
     "minimum-stability": "dev",
     "keywords": [
-        "base functions",
-        "parsing",
-        "log parser"
+        "zf2 module",
+        "log parsing"
     ],
-    "homepage": "https://github.com/gabbydgab/GdgLogParser",
+    "homepage": "https://github.com/gabbydgab/GdgLogProvider",
     "authors": [
         {
             "name": "Gab Amba",
@@ -19,7 +18,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4.20",
         "zendframework/zend-log": "2.2.*",
         "zendframework/zend-validator": "2.2.*",
         "zendframework/zend-config": "2.2.*",
