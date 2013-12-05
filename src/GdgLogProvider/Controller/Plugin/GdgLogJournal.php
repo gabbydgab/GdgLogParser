@@ -39,12 +39,12 @@ namespace GdgLogProvider\Controller\Plugin;
 
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use GdgLogProvider\Service\LogInterface;
+use GdgLogProvider\Service;
 
 class GdgLogJournal extends AbstractPlugin
 {
     /**
-     * @var LogInterface
+     * @var Service\LogInterface
      */
     protected $_logService;    
     
@@ -54,10 +54,10 @@ class GdgLogJournal extends AbstractPlugin
      * 
      * @param \GdgLogProvider\Controller\Plugin\LogReaderInterface $reader
      */
-    public function setLoggingService(LogInterface $reader)
+    public function setLoggingService(Service\LogInterface $reader)
     {
         $this->_logService = $reader;
-    }    
+    }
     
     /**
      * @return LogReaderInterface
@@ -75,6 +75,18 @@ class GdgLogJournal extends AbstractPlugin
      */
     public function hasQueued()
     {
-        return $this->getLoggingService()->getMapper()->hasQueued();
+        return $this->getServiceMapper()->hasQueued();
+    }
+    
+    
+    public function getServiceMapper()
+    {
+        return $this->getLoggingService()->getMapper();
+    }
+    
+    
+    public function getServiceEntity()
+    {
+        return $this->getLoggingService()->getEntity();
     }
 }
