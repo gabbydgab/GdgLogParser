@@ -38,7 +38,72 @@
 
 namespace GdgLogProvider;
 
-class Module
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\ControllerProviderInterface;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+
+
+class Module implements 
+    AutoloaderProviderInterface,
+    ServiceProviderInterface,    
+    ConfigProviderInterface,
+    ControllerProviderInterface
 {
+    public function getConfig()
+    {
+        $config      = array();
+        $configFiles = array(
+            'module.config.php',
+            'console.routes.config.php',
+        );
+        foreach ($configFiles as $configFile) {
+            $config = \Zend\Stdlib\ArrayUtils::merge($config, include __DIR__ .'/config/'. $configFile);
+        }
+
+        return $config;
+    }
     
+    public function getControllerPluginConfig()
+    {
+        return [
+            'factories' => [
+                'GdgLogJornal' => function($services) {
+                    
+                    $locator = $services->getServiceLocator();
+                    
+                    return new Controller\Plugin\GdgLogJournal();
+                }
+            ],
+        ];
+    }
+
+
+
+
+    public function getAutoloaderConfig()
+    {
+        return array(
+            'Zend\Loader\ClassMapAutoloader' => array(
+                __DIR__ . '/autoload_classmap.php',
+            ),
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                ),
+            ),
+        );
+    }
+    
+    
+    public function getServiceConfig()
+    {
+        return include __DIR__ . '/config/services.config.php';
+    }
+    
+    
+    public function getControllerConfig()
+    {
+        return include __DIR__ . '/config/controllers.config.php';
+    }
 }
