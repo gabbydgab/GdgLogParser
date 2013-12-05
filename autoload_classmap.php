@@ -39,8 +39,10 @@ return [
     
     'GdgLogProvider\Mapper\LogInterface'    =>  __DIR__ . '/src/GdgLogProvider/Mapper/LogInterface.php',
     'GdgLogProvider\Mapper\AbstractLogMapper'    =>  __DIR__ . '/src/GdgLogProvider/Mapper/AbstractLogMapper.php',
+    'GdgLogProvider\Mapper\ChangeLogTable'    =>  __DIR__ . '/src/GdgLogProvider/Mapper/ChangeLogTable.php',
     
     'GdgLogProvider\Entity\LogInterface'    =>  __DIR__ . '/src/GdgLogProvider/Entity/LogInterface.php',
     'GdgLogProvider\Entity\AbstractLogEntity'    =>  __DIR__ . '/src/GdgLogProvider/Entity/AbstractLogEntity.php',
+    'GdgLogProvider\Entity\ChangeLogTable'    =>  __DIR__ . '/src/GdgLogProvider/Entity/ChangeLogTable.php',
     
 ];
