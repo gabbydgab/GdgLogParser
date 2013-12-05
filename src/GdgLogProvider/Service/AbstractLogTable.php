@@ -67,12 +67,12 @@ abstract class AbstractLogTable implements LogInterface
     
     public function getEntity()
     {
-        $this->_entity;
+        return $this->_entity;
     }
     
     public function getMapper()
     {
-        $this->_mapper;
+        return $this->_mapper;
     }
 
     public function hasQueued()
