@@ -32,18 +32,49 @@
 /**
  * GdgLogProvider\Controller\Plugin\GdgLogJournal
  *
- * @author Gab Amba <gamba@usautoparts.com>
+ * @author Gab Amba <gamba@gabbydgab.com>
  */
 
 namespace GdgLogProvider\Controller\Plugin;
 
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use GdgLogProvider\Service\LogInterface;
 
 class GdgLogJournal extends AbstractPlugin
 {
-    public function viewLog()
+    /**
+     * @var LogInterface
+     */
+    protected $_logService;    
+    
+    
+    /**
+     * Log reader interface 
+     * 
+     * @param \GdgLogProvider\Controller\Plugin\LogReaderInterface $reader
+     */
+    public function setLoggingService(LogInterface $reader)
     {
-        echo "test";
+        $this->_logService = $reader;
+    }    
+    
+    /**
+     * @return LogReaderInterface
+     */
+    public function getLoggingService()
+    {
+        return $this->_logService;
+    }
+    
+
+    /**
+     * Count if there are QUEUED changes in a log
+     * 
+     * @return boolean
+     */
+    public function hasQueued()
+    {
+        return $this->getLoggingService()->hasQueued();
     }
 }

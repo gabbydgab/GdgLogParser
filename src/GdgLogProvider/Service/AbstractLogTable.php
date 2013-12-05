@@ -1,6 +1,6 @@
 <?php
 
-/* * 
+/* 
  * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
@@ -12,6 +12,9 @@
  * * Redistributions in binary form must reproduce the above copyright notice,
  *   this list of conditions and the following disclaimer in the documentation
  *   and/or other materials provided with the distribution.
+ * * Neither the name of "S.E.A.D.L.E.S.S. Object Oriented Technologies, Inc" 
+ *   nor the names of its contributors may be used to endorse or promote 
+ *   products derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,26 +30,53 @@
  */
 
 /**
- * GdgLogProvider\Mapper\AbstractLogMapper
+ * \AbstractLogTable
  *
  * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider\Mapper
  */
 
-namespace GdgLogProvider\Mapper;
+namespace GdgLogProvider\Service;
 
-abstract class AbstractLogMapper implements LogInterface
+use GdgLogProvider\Entity\AbstractLogEntity;
+use GdgLogProvider\Mapper\AbstractLogMapper;
+
+abstract class AbstractLogTable implements LogInterface
 {
-    protected $_tableName;
+    /**
+     *
+     * @var AbstractLogMapper
+     */
+    protected $_mapper;
     
-    public function getLogTable()
+    /**
+     *
+     * @var AbstractLogEntity
+     */
+    protected $_entity;
+
+    
+    public function setEntity(AbstractLogEntity $entity)
     {
-        return $this->_tableName;
+        $this->_entity = $entity;
     }
     
-    public function setLogTable($table)
+    public function setMapper(AbstractLogMapper $mapper)
     {
-        $this->_tableName = $table;
+        $this->_mapper = $mapper;
     }
     
+    public function getEntity()
+    {
+        $this->_entity;
+    }
+    
+    public function getMapper()
+    {
+        $this->_mapper;
+    }
+
+    public function hasQueued()
+    {
+        return $this->getMapper()->hasQueued();
+    }
 }

@@ -12,6 +12,9 @@
  * * Redistributions in binary form must reproduce the above copyright notice,
  *   this list of conditions and the following disclaimer in the documentation
  *   and/or other materials provided with the distribution.
+ * * Neither the name of "S.E.A.D.L.E.S.S. Object Oriented Technologies, Inc" 
+ *   nor the names of its contributors may be used to endorse or promote 
+ *   products derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -27,26 +30,27 @@
  */
 
 /**
- * GdgLogProvider\Mapper\AbstractLogMapper
+ * GdgLogProvider\Service\LogInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider\Mapper
  */
 
-namespace GdgLogProvider\Mapper;
+namespace GdgLogProvider\Service;
 
-abstract class AbstractLogMapper implements LogInterface
+use GdgLogProvider\Entity\AbstractLogEntity;
+use GdgLogProvider\Mapper\AbstractLogMapper;
+
+interface LogInterface
 {
-    protected $_tableName;
     
-    public function getLogTable()
-    {
-        return $this->_tableName;
-    }
+    public function setEntity(AbstractLogEntity $entity);
     
-    public function setLogTable($table)
-    {
-        $this->_tableName = $table;
-    }
+    public function getEntity();
+
+    public function setMapper(AbstractLogMapper $mapper);
+    
+    public function getMapper();
+
+    public function hasQueued();
     
 }

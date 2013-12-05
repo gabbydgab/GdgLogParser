@@ -32,12 +32,18 @@
 /**
  * GdgLogProvider\Entity\LogInterface
  *
- * @author Gab Amba <gamba@usautoparts.com>
+ * @author Gab Amba <gamba@gabbydgab.com>
  */
 
 namespace GdgLogProvider\Entity;
 
 interface LogInterface
 {
+    public function getLogId();
     
+    public function setLogId($logId);
+    
+    public function setLogTable($table);
+    
+    public function getLogTable($table);
 }

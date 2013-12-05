@@ -32,7 +32,7 @@
 /**
  * GdgLogProvider\Entity\AbstractLogEntity
  *
- * @author Gab Amba <gamba@usautoparts.com>
+ * @author Gab Amba <gamba@gabbydgab.com>
  * @package GdgLogProvider\Entity
  */
 

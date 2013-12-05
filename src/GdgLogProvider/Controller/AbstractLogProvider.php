@@ -32,7 +32,7 @@
 /**
  * GdgLogProvider\Controller\AbstractLogProvider
  *
- * @author Gab Amba <gamba@usautoparts.com>
+ * @author Gab Amba <gamba@gabbydgab.com>
  */
 
 namespace GdgLogProvider\Controller;

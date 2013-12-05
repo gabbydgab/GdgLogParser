@@ -32,7 +32,7 @@
 /**
  * GdgLogProvider\Mapper\LogInterface
  *
- * @author Gab Amba <gamba@usautoparts.com>
+ * @author Gab Amba <gamba@gabbydgab.com>
  * @package GdgLogProvider\Mapper
  */
 
@@ -40,5 +40,9 @@ namespace GdgLogProvider\Mapper;
 
 interface LogInterface
 {
+    public function getLogTable();
     
+    public function setLogTable($table);
+
+    public function hasQueued();
 }
