@@ -69,18 +69,13 @@ class Module implements
     {
         return [
             'factories' => [
-                'GdgLogJournal' => function($services) {
+                'ChangeLogServiceDispatch' => function($services) {
             
-                    $locator = $services->getServiceLocator();
-                    
-                    $logService = new Service\ChangeLogTable();
-                    $logService->setMapper(new Mapper\ChangeLogTable());
-                    
                     $plugin = new Controller\Plugin\GdgLogJournal();
-                    $plugin->setLoggingService($logService);
+                    $plugin->setLoggingService(new Service\ChangeLogTable());
                     
                     return $plugin;
-                }
+                },
             ],
         ];
     }
