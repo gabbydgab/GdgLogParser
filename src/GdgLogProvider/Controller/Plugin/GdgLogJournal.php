@@ -75,6 +75,6 @@ class GdgLogJournal extends AbstractPlugin
      */
     public function hasQueued()
     {
-        return $this->getLoggingService()->hasQueued();
+        return $this->getLoggingService()->getMapper()->hasQueued();
     }
 }
