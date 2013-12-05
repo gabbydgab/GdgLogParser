@@ -69,9 +69,9 @@ class Module implements
     {
         return [
             'factories' => [
-                'GdgLogJornal' => function($services) {
-                    
-                    $locator = $services->getServiceLocator();                    
+                'GdgLogJournal' => function($services) {
+            
+                    $locator = $services->getServiceLocator();                   
                     return new Controller\Plugin\GdgLogJournal();
                 }
             ],
