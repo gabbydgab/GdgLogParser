@@ -74,7 +74,7 @@ class Module implements
                     $locator = $services->getServiceLocator();
                     
                     $logService = new Service\ChangeLogTable();
-                    $logService->setMapper(Mapper\ChangeLogTable());
+                    $logService->setMapper(new Mapper\ChangeLogTable());
                     
                     $plugin = new Controller\Plugin\GdgLogJournal();
                     $plugin->setLoggingService($logService);
