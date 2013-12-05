@@ -30,15 +30,15 @@
  */
 
 /**
- * GdgLogProvider\Module
+ * GdgLogProvider\Entity\AbstractLogEntity
  *
- * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider
+ * @author Gab Amba <gamba@usautoparts.com>
+ * @package GdgLogProvider\Entity
  */
 
-namespace GdgLogProvider;
+namespace GdgLogProvider\Entity;
 
-class Module
+abstract class AbstractLogEntity implements LogInterface
 {
     
 }

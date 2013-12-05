@@ -30,15 +30,15 @@
  */
 
 /**
- * GdgLogProvider\Module
+ * GdgLogProvider\Mapper\LogInterface
  *
- * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider
+ * @author Gab Amba <gamba@usautoparts.com>
+ * @package GdgLogProvider\Mapper
  */
 
-namespace GdgLogProvider;
+namespace GdgLogProvider\Mapper;
 
-class Module
+interface LogInterface
 {
     
 }

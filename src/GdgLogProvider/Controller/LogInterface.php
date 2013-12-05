@@ -30,15 +30,15 @@
  */
 
 /**
- * GdgLogProvider\Module
+ * GdgLogProvider\Controller\LogInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider
+ * @package GdgLogProvider\Controller
  */
 
-namespace GdgLogProvider;
+namespace GdgLogProvider\Controller;
 
-class Module
+interface LogInterface
 {
     
 }

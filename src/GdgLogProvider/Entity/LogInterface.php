@@ -30,15 +30,14 @@
  */
 
 /**
- * GdgLogProvider\Module
+ * GdgLogProvider\Entity\LogInterface
  *
- * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider
+ * @author Gab Amba <gamba@usautoparts.com>
  */
 
-namespace GdgLogProvider;
+namespace GdgLogProvider\Entity;
 
-class Module
+interface LogInterface
 {
     
 }
