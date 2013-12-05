@@ -35,6 +35,7 @@ return [
     'GdgLogProvider\Module'                            =>  __DIR__ . '/Module.php',
     'GdgLogProvider\Controller\LogInterface'           =>  __DIR__ . '/src/GdgLogProvider/Controller/LogInterface.php',
     'GdgLogProvider\Controller\AbstractLogProvider'    =>  __DIR__ . '/src/GdgLogProvider/Controller/AbstractLogProvider.php',
+    'GdgLogProvider\Controller\Plugin\GdgLogJournal'    =>  __DIR__ . '/src/GdgLogProvider/Controller/Plugin/GdgLogJournal.php',
     
     'GdgLogProvider\Mapper\LogInterface'    =>  __DIR__ . '/src/GdgLogProvider/Mapper/LogInterface.php',
     'GdgLogProvider\Mapper\AbstractLogMapper'    =>  __DIR__ . '/src/GdgLogProvider/Mapper/AbstractLogMapper.php',

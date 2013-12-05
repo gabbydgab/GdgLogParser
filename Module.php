@@ -38,6 +38,7 @@
 
 namespace GdgLogProvider;
 
+use Zend\ModuleManager\ModuleManager;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\ControllerProviderInterface;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
@@ -70,8 +71,7 @@ class Module implements
             'factories' => [
                 'GdgLogJornal' => function($services) {
                     
-                    $locator = $services->getServiceLocator();
-                    
+                    $locator = $services->getServiceLocator();                    
                     return new Controller\Plugin\GdgLogJournal();
                 }
             ],
