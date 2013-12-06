@@ -69,7 +69,7 @@ class Module implements
     {
         return [
             'factories' => [
-                'ChangeLogServiceDispatch' => function($services) {
+                'ChangeLogDispatchPlugin' => function($services) {
             
                     $plugin = new Controller\Plugin\GdgLogJournal();
                     $plugin->setLoggingService(new Service\ChangeLogTable());

@@ -30,7 +30,7 @@
  */
 
 /**
- * \ChangeLogTable
+ * GdgLogProvider\Mapper\ChangeLogTable
  *
  * @author Gab Amba <gamba@gabbydgab.com>
  */
