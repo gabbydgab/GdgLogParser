@@ -43,7 +43,7 @@ interface LogInterface
     
     public function setLogId($logId);
     
-    public function setLogTable($table);
+    public function setStatus($logId);
     
-    public function getLogTable($table);
+    public function getStatus();
 }

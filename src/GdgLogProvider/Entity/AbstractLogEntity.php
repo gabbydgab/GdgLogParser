@@ -40,5 +40,29 @@ namespace GdgLogProvider\Entity;
 
 abstract class AbstractLogEntity implements LogInterface
 {
+    protected $_logId;
     
+    protected $_status;
+
+
+    public function setLogId($logId)
+    {
+        $this->_logId = $logId;
+    }
+    
+    public function getLogId()
+    {
+        return $this->_logId;
+    } 
+    
+    public function getStatus()
+    {
+        return $this->_status;
+    }
+    
+    
+    public function setStatus($status)
+    {
+        $this->_status = $status;
+    }
 }
