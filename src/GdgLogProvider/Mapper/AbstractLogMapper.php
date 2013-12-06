@@ -35,7 +35,9 @@
 
 namespace GdgLogProvider\Mapper;
 
-abstract class AbstractLogMapper implements LogInterface
+use ZfcBase\Mapper\AbstractDbMapper;
+
+abstract class AbstractLogMapper extends AbstractDbMapper implements LogInterface
 {
     protected $_tableName;
     
