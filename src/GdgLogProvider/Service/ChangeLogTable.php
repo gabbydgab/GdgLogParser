@@ -37,4 +37,8 @@ namespace GdgLogProvider\Service;
 class ChangeLogTable extends AbstractLogTable
 {
     
+    public function fetchByStatus($status)
+    {
+        return ['log_id' => 1, 'key_id' => 232787, 'status' => $status];
+    }
 }

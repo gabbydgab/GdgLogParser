@@ -51,9 +51,9 @@ class GdgLogJournal extends AbstractPlugin
      * 
      * @param \GdgLogProvider\Controller\Plugin\LogReaderInterface $reader
      */
-    public function setLoggingService(Service\LogInterface $reader)
+    public function setLoggingService(Service\LogInterface $service)
     {
-        $this->_logService = $reader;
+        $this->_logService = $service;
     }
     
     /**
@@ -85,5 +85,10 @@ class GdgLogJournal extends AbstractPlugin
     public function getServiceEntity()
     {
         return $this->getLoggingService()->getEntity();
+    }
+    
+    public function fetchByStatus($status)
+    {
+        return $this->getLoggingService()->fetchByStatus($status);
     }
 }
