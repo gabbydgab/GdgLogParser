@@ -44,10 +44,10 @@ class ChangeLogTable extends AbstractLogMapper
     CONST OVERRIDEN = 'Overriden';
     CONST DELETED = 'Deleted';
     
-    public function fetchByStataus($status)
+    public function fetchByStatus($status)
     {
         $query = "SELECT * FROM {$this->getLogTable()} "
-                . "WHERE status = {$status}"
+                . "WHERE status = '{$status}' "
                 . "LIMIT 1";
                 
         $statement = $this->getDbAdapter()->createStatement($query);
@@ -62,8 +62,10 @@ class ChangeLogTable extends AbstractLogMapper
     
     public function hasQueued()
     {
+        $status = self::QUEUED;
+        
         $query = "SELECT * FROM {$this->getLogTable()} "
-                . "WHERE status = '" . self::QUEUED . "' "
+                . "WHERE status = '{$status}' "
                 . "LIMIT 1";
                 
         $statement = $this->getDbAdapter()->createStatement($query);
