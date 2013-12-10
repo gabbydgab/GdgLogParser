@@ -44,4 +44,6 @@ interface LogInterface
     public function hasQueued();
     
     public function fetchByStatus($status);
+    
+    //public function setStatus($status, $id);
 }

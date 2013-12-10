@@ -52,6 +52,9 @@ interface LogInterface
     
     public function fetchByStatus($status);
     
+    public function updateStatus($status);
+
+
     /**
      * @todo Needs detailed implementation
      */

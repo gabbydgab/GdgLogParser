@@ -76,5 +76,22 @@ class ChangeLogTable extends AbstractLogMapper
         }
         
         return true;
+    }    
+    
+    public function setStatus($status, $id)
+    {
+        $query = "UPDATE {$this->getLogTable()} "
+                . "SET status = '{$status}' "
+                . "WHERE {$this->getLogTable()} = '{$status}' "
+                . "LIMIT 1";
+                
+        $statement = $this->getDbAdapter()->createStatement($query);
+        $row = $statement->execute();
+
+        if ($row->getAffectedRows() <= 0) {
+            return [];
+        }
+        
+        return $row->current();
     }
 }
