@@ -63,7 +63,7 @@ class ChangeLogTable extends AbstractLogMapper
     public function hasQueued()
     {
         $query = "SELECT * FROM {$this->getLogTable()} "
-                . "WHERE status = '" . self::QUEUED . "'"
+                . "WHERE status = '" . self::QUEUED . "' "
                 . "LIMIT 1";
                 
         $statement = $this->getDbAdapter()->createStatement($query);
