@@ -42,4 +42,6 @@ interface LogInterface
     public function setLogTable($table);
 
     public function hasQueued();
+    
+    public function fetchByStataus($status);
 }

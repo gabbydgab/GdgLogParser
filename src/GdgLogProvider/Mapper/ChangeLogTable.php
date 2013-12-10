@@ -36,8 +36,43 @@ namespace GdgLogProvider\Mapper;
 
 class ChangeLogTable extends AbstractLogMapper
 {
+    CONST QUEUED = 'Queued';
+    CONST PROCESSING = 'Processing';
+    CONST FAILED = 'Failed';
+    CONST COMPLETED = 'Completed';
+    CONST INCOMPLETE = 'Incomplete';
+    CONST OVERRIDEN = 'Overriden';
+    CONST DELETED = 'Deleted';
+    
+    public function fetchByStataus($status)
+    {
+        $query = "SELECT * FROM {$this->getLogTable()} "
+                . "WHERE status = {$status}"
+                . "LIMIT 1";
+                
+        $statement = $this->getDbAdapter()->createStatement($query);
+        $row = $statement->execute();
+
+        if ($row->getAffectedRows() <= 0) {
+            return [];
+        }
+        
+        return $row->current();
+    }
+    
     public function hasQueued()
     {
+        $query = "SELECT * FROM {$this->getLogTable()} "
+                . "WHERE status = '" . self::QUEUED . "'"
+                . "LIMIT 1";
+                
+        $statement = $this->getDbAdapter()->createStatement($query);
+        $row = $statement->execute();
+
+        if ($row->getAffectedRows() <= 0) {
+            return false;
+        }
+        
         return true;
     }
 }

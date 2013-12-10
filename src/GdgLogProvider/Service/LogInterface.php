@@ -50,4 +50,15 @@ interface LogInterface
 
     public function hasQueued();
     
+    public function fetchByStatus($status);
+    
+    /**
+     * @todo Needs detailed implementation
+     */
+    //public function fetchAllByStatus($status);
+    
+    //public function fetchLatestById($logId);
+    
+    //public function fetchAllRecordsById($logId);
+    
 }

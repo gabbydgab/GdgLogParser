@@ -76,4 +76,16 @@ abstract class AbstractLogTable implements LogInterface
     {
         return $this->getMapper()->hasQueued();
     }
+    
+    
+    public function fetchByStatus($status)
+    {
+        $result = $this->getMapper()->fetchByStatus($status);
+        
+        var_dump($result); exit;
+        
+        $entity = $this->getEntity();
+        
+        return $entity->getCollection();
+    }
 }
