@@ -41,6 +41,18 @@ abstract class AbstractLogMapper extends AbstractDbMapper implements LogInterfac
 {
     protected $_tableName;
     
+    protected $_logId;
+    
+    public function setLogId($logId)
+    {
+        $this->_logId = $logId;
+    }
+    
+    public function getLogId()
+    {
+        return $this->_logId;
+    }
+
     public function getLogTable()
     {
         return $this->_tableName;

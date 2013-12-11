@@ -37,6 +37,10 @@ namespace GdgLogProvider\Mapper;
 
 interface LogInterface
 {
+    public function setLogId($logId);
+    
+    public function getLogId();
+
     public function getLogTable();
     
     public function setLogTable($table);
@@ -45,5 +49,5 @@ interface LogInterface
     
     public function fetchByStatus($status, $limit=1);
     
-    //public function setStatus($status, $id);
+    public function setStatus($status);
 }

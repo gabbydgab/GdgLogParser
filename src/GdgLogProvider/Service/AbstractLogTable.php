@@ -94,8 +94,13 @@ abstract class AbstractLogTable implements LogInterface
      */
     public function updateStatus($status)
     {
-        echo "Updating status here"; exit;
+        $mapper = $this->getMapper();
+        $mapper->setLogId($this->getEntity()->getLogId());
         
-        return $this->getMapper()->setStatus($status);
+        if (!$mapper->setStatus($status)) {
+            throw new Exception("Cannot update status: {$status}");
+        }
+        
+        return true;
     }
 }
