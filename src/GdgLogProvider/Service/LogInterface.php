@@ -39,7 +39,8 @@ use GdgLogProvider\Mapper\AbstractLogMapper;
 
 interface LogInterface
 {
-    
+    public function setLogId($logId);
+
     public function setEntity(AbstractLogEntity $entity);
     
     public function getEntity();

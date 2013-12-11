@@ -82,6 +82,11 @@ abstract class AbstractLogTable implements LogInterface
         return $this->getMapper()->fetchByStatus($status, $limit);
     }
     
+    public function setLogId($logId)
+    {
+        $this->getEntity()->setLogId($logId);
+    }
+
     /**
      * @todo For implementation
      * @param string $status
