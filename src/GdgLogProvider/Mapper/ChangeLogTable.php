@@ -34,6 +34,9 @@
 
 namespace GdgLogProvider\Mapper;
 
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\ResultSet\ResultSet;
+
 class ChangeLogTable extends AbstractLogMapper
 {
     CONST QUEUED = 'Queued';
@@ -44,20 +47,25 @@ class ChangeLogTable extends AbstractLogMapper
     CONST OVERRIDEN = 'Overriden';
     CONST DELETED = 'Deleted';
     
-    public function fetchByStatus($status)
+    public function fetchByStatus($status, $limit=1)
     {
         $query = "SELECT * FROM {$this->getLogTable()} "
                 . "WHERE status = '{$status}' "
-                . "LIMIT 1";
+                . "LIMIT {$limit}";
                 
         $statement = $this->getDbAdapter()->createStatement($query);
-        $row = $statement->execute();
-
-        if ($row->getAffectedRows() <= 0) {
+        $result = $statement->execute();
+        
+        if ($result->getAffectedRows() <= 0) {
             return [];
         }
         
-        return $row->current();
+        if ($result instanceof ResultInterface && $result->isQueryResult()) {
+            $resultSet = new ResultSet;
+            $resultSet->initialize($result);
+            
+            return $resultSet->toArray();
+        }
     }
     
     public function hasQueued()

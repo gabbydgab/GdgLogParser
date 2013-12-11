@@ -50,7 +50,7 @@ interface LogInterface
 
     public function hasQueued();
     
-    public function fetchByStatus($status);
+    public function fetchByStatus($status, $limit=1);
     
     public function updateStatus($status);
 
