@@ -1,6 +1,6 @@
 <?php
 
-/* * 
+/** 
  * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *

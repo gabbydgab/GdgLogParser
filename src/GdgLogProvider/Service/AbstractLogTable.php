@@ -1,7 +1,7 @@
 <?php
 
-/* 
- * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2013 - 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,9 +27,10 @@
  */
 
 /**
- * \AbstractLogTable
+ * GdgLogProvider\Service\AbstractLogTable
  *
  * @author Gab Amba <gamba@gabbydgab.com>
+ * @package GdgLogProvider\Service
  */
 
 namespace GdgLogProvider\Service;
