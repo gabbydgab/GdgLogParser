@@ -2,7 +2,7 @@
     "name": "gabbydgab/gdg-logprovider",
     "description": "Abstract application that provides log information in an ETL process such as data logs",
     "license": "BSD-2-Clause",    
-    "type": "plugin/module",
+    "type": "plugin",
     "keywords": [
         "zf2 module",
         "log parsing"
