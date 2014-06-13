@@ -17,7 +17,7 @@
     ],
     "require": {
         "zf-commons/zfc-base": "dev-master",
-        "gabbydgab/gdg-commons": "1.1.*"
+        "gabbydgab/gdg-commons": "1.*"
     },
     "extra": {
         "branch-alias": {
