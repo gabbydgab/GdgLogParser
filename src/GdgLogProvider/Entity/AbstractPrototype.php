@@ -1,7 +1,7 @@
 <?php
 
-/** 
- * Copyright (c) 2013 - 2014, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,28 +26,56 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Entity;
+
+use GdgCommons\DataMapper\Entity\AbstractPrototype AS AbstractEntityPrototype;
+use GdgCommons\Exception\InvalidArgumentException AS GdgCommonsInvalidArgumentException;
+use GdgCommons\Exception\RuntimeException AS GdgCommonsRuntimeException;
+
 /**
- * GdgLogProvider\Mapper\LogInterface
+ * GdgLogProvider\Entity\AbstractPrototype
  *
  * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider\Mapper
  */
-
-namespace GdgLogProvider\Mapper;
-
-interface LogInterface
+class AbstractPrototype extends AbstractEntityPrototype implements AwareInterface
 {
-    public function setLogId($logId);
-    
-    public function getLogId();
+    /**
+     * @var string
+     */
+    protected $_status;
 
-    public function getLogTable();
-    
-    public function setLogTable($table);
+    /**
+     * {@inheritDoc}
+     *
+     * @param string $status
+     * @throws GdgCommonsInvalidArgumentException
+     */
+    public function setStatus($status = "")
+    {
+        if (empty($status)) {
+            throw new GdgCommonsInvalidArgumentException("Status should not be null");
+        }
 
-    public function hasQueued();
-    
-    public function fetchByStatus($status, $limit=1);
-    
-    public function setStatus($status);
+        $this->_status = $status;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return string
+     * @throws GdgCommonsRuntimeException
+     */
+    public function getStatus()
+    {
+        if (empty($this->_status)) {
+            throw new GdgCommonsRuntimeException("Status is null");
+        }
+
+        return $this->_status;
+    }
+
+    public function getCollection()
+    {
+        //DO SOMETHING HERE;
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
-/** 
- * Copyright (c) 2013 - 2014, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,21 +26,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Controller;
+
 /**
- * GdgLogProvider\Entity\LogInterface
+ * GdgLogProvider\Controller\ServicePluginAwareInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
+ * @package GdgLogProvider\Controller
  */
-
-namespace GdgLogProvider\Entity;
-
-interface LogInterface
+interface ServicePluginAwareInterface
 {
-    public function getLogId();
     
-    public function setLogId($logId);
-    
-    public function setStatus($logId);
-    
-    public function getStatus();
 }

@@ -1,7 +1,7 @@
 <?php
 
-/** 
- * Copyright (c) 2013 - 2014, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,41 +26,41 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Mapper;
+
 /**
- * GdgLogProvider\Mapper\AbstractLogMapper
+ * GdgLogProvider\Mapper\LogTableAwareInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
  * @package GdgLogProvider\Mapper
  */
-
-namespace GdgLogProvider\Mapper;
-
-use ZfcBase\Mapper\AbstractDbMapper;
-
-abstract class AbstractLogMapper extends AbstractDbMapper implements LogInterface
+interface LogTableAwareInterface
 {
-    protected $_tableName;
+    public function setKeyId($keyId = 0);
     
-    protected $_logId;
-    
-    public function setLogId($logId)
-    {
-        $this->_logId = $logId;
-    }
-    
-    public function getLogId()
-    {
-        return $this->_logId;
-    }
+    public function getKeyId();
 
-    public function getLogTable()
-    {
-        return $this->_tableName;
-    }
+    public function setKeyName($keyName = "");
     
-    public function setLogTable($table)
-    {
-        $this->_tableName = $table;
-    }
+    public function getKeyName();
+
+    public function setStatus($status = "");
     
+    public function fetchByStatus($status = "", $limit = 1);
+    
+    public function hasQueued();
+    
+//    public function hasFailed();
+    
+//    public function hasCompleted();
+    
+//    public function hasProcessing();
+    
+//    public function isProcessing($logId = 0);
+    
+//    public function isQueued($logId = 0);
+    
+//    public function isFailed($logId = 0);
+    
+//    public function isCompleted($logId = 0);
 }

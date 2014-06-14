@@ -34,66 +34,7 @@
 
 namespace GdgLogProvider\Mapper;
 
-use Zend\Db\Adapter\Driver\ResultInterface;
-use Zend\Db\ResultSet\ResultSet;
-
-class ChangeLogTable extends AbstractLogMapper
+class ChangeLogTable extends AbstractLogTable
 {
-    CONST QUEUED = 'Queued';
-    CONST PROCESSING = 'Processing';
-    CONST FAILED = 'Failed';
-    CONST COMPLETED = 'Completed';
-    CONST INCOMPLETE = 'Incomplete';
-    CONST OVERRIDEN = 'Overriden';
-    CONST DELETED = 'Deleted';
     
-    public function fetchByStatus($status, $limit=1)
-    {
-        $query = "SELECT * FROM {$this->getLogTable()} "
-                . "WHERE status = '{$status}' "
-                . "LIMIT {$limit}";
-                
-        $statement = $this->getDbAdapter()->createStatement($query);
-        $result = $statement->execute();
-        
-        if ($result->getAffectedRows() <= 0) {
-            return [];
-        }
-        
-        if ($result instanceof ResultInterface && $result->isQueryResult()) {
-            $resultSet = new ResultSet;
-            $resultSet->initialize($result);
-            
-            return $resultSet->toArray();
-        }
-    }
-    
-    public function hasQueued()
-    {
-        $status = self::QUEUED;
-        
-        $query = "SELECT * FROM {$this->getLogTable()} "
-                . "WHERE status = '{$status}' "
-                . "LIMIT 1";
-                
-        $statement = $this->getDbAdapter()->createStatement($query);
-        $row = $statement->execute();
-
-        if ($row->getAffectedRows() <= 0) {
-            return false;
-        }
-        
-        return true;
-    }    
-    
-    public function setStatus($status)
-    {
-        $query = "UPDATE {$this->getLogTable()} "
-                . "SET status = '{$status}' "
-                . "WHERE log_id = {$this->getLogId()} "
-                . "LIMIT 1";
-                
-        $statement = $this->getDbAdapter()->createStatement($query);
-        return  $statement->execute();
-    }
 }

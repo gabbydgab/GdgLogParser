@@ -45,29 +45,29 @@ abstract class AbstractLogTable implements LogInterface
      * @var AbstractLogMapper
      */
     protected $_mapper;
-    
+
     /**
      *
      * @var AbstractLogEntity
      */
     protected $_entity;
 
-    
+
     public function setEntity(AbstractLogEntity $entity)
     {
         $this->_entity = $entity;
     }
-    
+
     public function setMapper(AbstractLogMapper $mapper)
     {
         $this->_mapper = $mapper;
     }
-    
+
     public function getEntity()
     {
         return $this->_entity;
     }
-    
+
     public function getMapper()
     {
         return $this->_mapper;
@@ -76,13 +76,13 @@ abstract class AbstractLogTable implements LogInterface
     public function hasQueued()
     {
         return $this->getMapper()->hasQueued();
-    }    
-    
+    }
+
     public function fetchByStatus($status, $limit=1)
     {
         return $this->getMapper()->fetchByStatus($status, $limit);
     }
-    
+
     public function setLogId($logId)
     {
         $this->getEntity()->setLogId($logId);
@@ -97,11 +97,11 @@ abstract class AbstractLogTable implements LogInterface
     {
         $mapper = $this->getMapper();
         $mapper->setLogId($this->getEntity()->getLogId());
-        
+
         if (!$mapper->setStatus($status)) {
             throw new Exception("Cannot update status: {$status}");
         }
-        
+
         return true;
     }
 }

@@ -68,7 +68,7 @@ class Module implements
             'factories' => [
                 'ChangeLogDispatchPlugin' => function($services) {
             
-                    $plugin = new Controller\Plugin\GdgLogJournal();
+                    $plugin = new Controller\ServicePlugin();
                     $plugin->setLoggingService(new Service\ChangeLogTable());
                     
                     return $plugin;

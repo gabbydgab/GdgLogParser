@@ -1,7 +1,7 @@
 <?php
 
-/** 
- * Copyright (c) 2013 - 2014, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,40 +26,29 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Entity;
+
 /**
- * GdgLogProvider\Entity\AbstractLogEntity
+ * GdgLogProvider\Entity\AwareInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
  * @package GdgLogProvider\Entity
  */
-
-namespace GdgLogProvider\Entity;
-
-abstract class AbstractLogEntity implements LogInterface
+interface AwareInterface
 {
-    protected $_logId;
+    /**
+     * Setter for processing status such as:
+     *  * Queued
+     *  * Processing
+     *  * Failed
+     *  * Completed
+     * 
+     * @param string $status
+     */
+    public function setStatus($status = "");
     
-    protected $_status;
-
-
-    public function setLogId($logId)
-    {
-        $this->_logId = $logId;
-    }
-    
-    public function getLogId()
-    {
-        return $this->_logId;
-    } 
-    
-    public function getStatus()
-    {
-        return $this->_status;
-    }
-    
-    
-    public function setStatus($status)
-    {
-        $this->_status = $status;
-    }
+    /**
+     * @return string $status
+     */
+    public function getStatus();
 }
