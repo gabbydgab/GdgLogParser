@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "gabbydgab/gdg-commons": "1.2.*"
+        "gabbydgab/gdg-commons": "1.*"
     },
     "extra": {
         "branch-alias": {
