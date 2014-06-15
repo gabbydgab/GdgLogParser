@@ -1,7 +1,7 @@
 <?php
 
-/* * 
- * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,15 +26,56 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Entity;
+
+use GdgCommons\DataMapper\Entity\AbstractPrototype AS AbstractEntityPrototype;
+use GdgCommons\Exception\InvalidArgumentException AS GdgCommonsInvalidArgumentException;
+use GdgCommons\Exception\RuntimeException AS GdgCommonsRuntimeException;
+
 /**
- * GdgLogProvider\Controller\AbstractLogProvider
+ * GdgLogProvider\Entity\AbstractPrototype
  *
  * @author Gab Amba <gamba@gabbydgab.com>
  */
-
-namespace GdgLogProvider\Controller;
-
-abstract class AbstractLogProvider implements LogInterface
+class AbstractPrototype extends AbstractEntityPrototype implements AwareInterface
 {
-    
+    /**
+     * @var string
+     */
+    protected $_status;
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param string $status
+     * @throws GdgCommonsInvalidArgumentException
+     */
+    public function setStatus($status = "")
+    {
+        if (empty($status)) {
+            throw new GdgCommonsInvalidArgumentException("Status should not be null");
+        }
+
+        $this->_status = $status;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return string
+     * @throws GdgCommonsRuntimeException
+     */
+    public function getStatus()
+    {
+        if (empty($this->_status)) {
+            throw new GdgCommonsRuntimeException("Status is null");
+        }
+
+        return $this->_status;
+    }
+
+    public function getCollection()
+    {
+        //DO SOMETHING HERE;
+    }
 }

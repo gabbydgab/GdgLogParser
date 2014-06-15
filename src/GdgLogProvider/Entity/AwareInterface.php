@@ -1,7 +1,7 @@
 <?php
 
-/* * 
- * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
+/**
+ * Copyright (c) 2014, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,28 +26,29 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+namespace GdgLogProvider\Entity;
+
 /**
- * GdgLogProvider\Mapper\LogInterface
+ * GdgLogProvider\Entity\AwareInterface
  *
  * @author Gab Amba <gamba@gabbydgab.com>
- * @package GdgLogProvider\Mapper
+ * @package GdgLogProvider\Entity
  */
-
-namespace GdgLogProvider\Mapper;
-
-interface LogInterface
+interface AwareInterface
 {
-    public function setLogId($logId);
+    /**
+     * Setter for processing status such as:
+     *  * Queued
+     *  * Processing
+     *  * Failed
+     *  * Completed
+     * 
+     * @param string $status
+     */
+    public function setStatus($status = "");
     
-    public function getLogId();
-
-    public function getLogTable();
-    
-    public function setLogTable($table);
-
-    public function hasQueued();
-    
-    public function fetchByStatus($status, $limit=1);
-    
-    public function setStatus($status);
+    /**
+     * @return string $status
+     */
+    public function getStatus();
 }

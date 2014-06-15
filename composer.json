@@ -1,9 +1,8 @@
 {
     "name": "gabbydgab/gdg-logprovider",
     "description": "Abstract application that provides log information in an ETL process such as data logs",
-    "license": "BSD-2-Clause",    
-    "type": "library",
-    "minimum-stability": "dev",
+    "license": "BSD-2-Clause",
+    "type": "plugin",
     "keywords": [
         "zf2 module",
         "log parsing"
@@ -17,7 +16,7 @@
         }
     ],
     "require": {
-        "zf-commons/zfc-base": "dev-master"
+        "gabbydgab/gdg-commons": "1.*"
     },
     "extra": {
         "branch-alias": {
@@ -26,11 +25,11 @@
         }
     },
     "autoload": {
-        "psr-0": {
-            "GdgLogProvider": "src/"
-        },
-        "classmap": [
-            "./Module.php"
-        ]
-    }    
+        "psr-4": {
+            "GdgLogProvider\\Controller\\": "src/GdgLogProvider/Controller/",
+            "GdgLogProvider\\Entity\\": "src/GdgLogProvider/Entity/",
+            "GdgLogProvider\\Mapper\\": "src/GdgLogProvider/Mapper/",
+            "GdgLogProvider\\Service\\": "src/GdgLogProvider/Service/"
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-/* * 
+/** 
  * Copyright (c) 2013, Gab Amba <gamba@gabbydgab.com>
  * All rights reserved.
  *
@@ -68,7 +68,7 @@ class Module implements
             'factories' => [
                 'ChangeLogDispatchPlugin' => function($services) {
             
-                    $plugin = new Controller\Plugin\GdgLogJournal();
+                    $plugin = new Controller\ServicePlugin();
                     $plugin->setLoggingService(new Service\ChangeLogTable());
                     
                     return $plugin;
