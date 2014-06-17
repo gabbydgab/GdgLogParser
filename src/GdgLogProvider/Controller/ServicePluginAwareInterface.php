@@ -28,6 +28,8 @@
 
 namespace GdgLogProvider\Controller;
 
+use GdgLogProvider\Service\AbstractLogTable AS AbstractLogTableService;
+
 /**
  * GdgLogProvider\Controller\ServicePluginAwareInterface
  *
@@ -36,5 +38,39 @@ namespace GdgLogProvider\Controller;
  */
 interface ServicePluginAwareInterface
 {
+    /**
+     * 
+     * @param \GdgLogProvider\Service\AbstractLogTable $service
+     */
+    public function setLoggingService(AbstractLogTableService $service);
     
+    /**
+     * @return \GdgLogProvider\Service\AbstractLogTable $service
+     */
+    public function getLoggingService();
+    
+    /**
+     * Checks if there are QUEUED changes in a log
+     * 
+     * @return boolean
+     */
+    public function hasQueued();
+    
+    /**
+     * @return \GdgLogProvider\Mapper\AbstractLogTable $mapper
+     */
+    public function getServiceMapper();
+    
+    /**
+     * @return \GdgLogProvider\Entity\AbstractPrototype $entity
+     */
+    public function getServiceEntity();
+    
+    /**
+     * Returns data collection per status
+     * 
+     * @param string $status
+     * @return array 
+     */
+    public function fetchByStatus($status = "");
 }

@@ -37,5 +37,4 @@ namespace GdgLogProvider\Service;
 class ChangeLogTable extends AbstractLogTable
 {
     
-    
 }

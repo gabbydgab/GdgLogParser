@@ -29,6 +29,7 @@
 namespace GdgLogProvider\Controller;
 
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
+use GdgLogProvider\Service\AbstractLogTable AS AbstractLogTableService;
 
 /**
  * GdgLogProvider\Controller\LogProviderServicePlugin
@@ -36,7 +37,70 @@ use Zend\Mvc\Controller\Plugin\AbstractPlugin;
  * @author Gab Amba <gamba@gabbydgab.com>
  * @package GdgLogProvider\Controller
  */
-class ServicePlugin extends AbstractPlugin
+class ServicePlugin extends AbstractPlugin implements ServicePluginAwareInterface
 {
+    /**
+     * @var \GdgLogProvider\Service\AbstractLogTable
+     */
+    protected $_service;
+
+    /**
+     * 
+     * @param \GdgLogProvider\Service\AbstractLogTable $service
+     */
+    public function setLoggingService(\GdgLogProvider\Service\AbstractLogTable $service)
+    {
+        $this->_service = $service;
+    }
     
+    /**
+     * {@inheritDoc}
+     * 
+     * @return \GdgLogProvider\Service\AbstractLogTable
+     */
+    public function getLoggingService()
+    {
+        return $this->_service;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * 
+     * @return boolean
+     */
+    public function hasQueued()
+    {
+        return $this->getLoggingService()->hasQueued();
+    }
+    
+    /**
+     * {@inheritDoc}
+     * 
+     * @return \GdgLogProvider\Entity\AbstractPrototype
+     */
+    public function getServiceEntity()
+    {
+        return $this->getLoggingService()->getEntity();
+    }
+    
+    /**
+     * {@inheritDoc}
+     * 
+     * @return \GdgLogProvider\Mapper\AbstractLogTable
+     */
+    public function getServiceMapper()
+    {
+        return $this->getLoggingService()->getMapper();
+    }
+    
+    /**
+     * {@inheritDoc}
+     * 
+     * @param string $status
+     * @return array data collection
+     */
+    public function fetchByStatus($status = "")
+    {
+        $this->getLoggingService()->fetchByStatus($status);
+    }
 }
