@@ -35,8 +35,8 @@
 
 namespace GdgLogProvider\Service;
 
-use GdgLogProvider\Entity\AbstractLogEntity;
-use GdgLogProvider\Mapper\AbstractLogMapper;
+use GdgLogProvider\Entity\AbstractPrototype AS AbstractLogEntity;
+use GdgLogProvider\Mapper\AbstractLogTable AS AbstractLogMapper;
 
 abstract class AbstractLogTable implements LogInterface
 {
