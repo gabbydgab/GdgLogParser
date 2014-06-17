@@ -48,7 +48,7 @@ class ServicePlugin extends AbstractPlugin implements ServicePluginAwareInterfac
      * 
      * @param \GdgLogProvider\Service\AbstractLogTable $service
      */
-    public function setLoggingService(\GdgLogProvider\Service\AbstractLogTable $service)
+    public function setLoggingService(AbstractLogTableService $service)
     {
         $this->_service = $service;
     }

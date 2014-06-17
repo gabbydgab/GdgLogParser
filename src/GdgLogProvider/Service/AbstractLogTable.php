@@ -42,13 +42,13 @@ abstract class AbstractLogTable implements LogInterface
 {
     /**
      *
-     * @var AbstractLogMapper
+     * @var GdgLogProvider\Mapper\AbstractLogTable
      */
     protected $_mapper;
 
     /**
      *
-     * @var AbstractLogEntity
+     * @var GdgLogProvider\Entity\AbstractPrototype
      */
     protected $_entity;
 
@@ -63,11 +63,19 @@ abstract class AbstractLogTable implements LogInterface
         $this->_mapper = $mapper;
     }
 
+    /**
+     * 
+     * @return GdgLogProvider\Entity\AbstractPrototype
+     */
     public function getEntity()
     {
         return $this->_entity;
     }
 
+    /**
+     * 
+     * @return GdgLogProvider\Mapper\AbstractLogTable
+     */
     public function getMapper()
     {
         return $this->_mapper;
